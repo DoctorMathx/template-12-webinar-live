@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink: #14102A;         /* deep plum ink */
+    --graphite: #1D1740;    /* section bg */
+    --charcoal: #2C245A;
+    --slate: #6B6690;
+    --slate-2: #4A4472;
+    --line: #E5E1F1;        /* light hairline */
+    --line-dark: #2B2455;   /* on dark */
+    --paper: #F5F2FB;       /* pale lavender */
+    --canvas: #FAF8FF;
+    --white: #FFFFFF;
+
+    /* Accent: electric lavender */
+    --accent: #7A5AF8;
+    --accent-ink: #5A3FD8;
+    --accent-soft: #EDE9FE;
+
+    --success: #22C55E;
+    --warn: #F59E0B;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans), Inter, system-ui, sans-serif; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--accent); color: #fff; }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display), Manrope, ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.03em; }
+  .font-sans { font-family: var(--font-sans), Inter, sans-serif; }
+
+  .container-x { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 640px) { .container-x { padding-inline: 1.75rem; } }
+  @media (min-width: 1024px) { .container-x { padding-inline: 2rem; } }
+
+  .ink { color: var(--ink); } .muted { color: var(--slate-2); } .muted-light { color: var(--slate); } .subtle { color: var(--charcoal); }
+  .bg-paper { background: var(--paper); } .bg-canvas { background: var(--canvas); } .bg-ink { background: var(--ink); } .bg-graphite { background: var(--graphite); } .bg-accent-soft { background: var(--accent-soft); } .text-accent { color: var(--accent); } .bg-accent { background: var(--accent); }
+  .border-line { border-color: var(--line); } .border-line-dark { border-color: var(--line-dark); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-weight: 600; border-radius: 14px; transition: all .18s ease; white-space: nowrap; }
+  .btn-primary { background: var(--ink); color: #fff; padding: .85rem 1.4rem; font-size: .93rem; }
+  .btn-primary:hover { background: #000; }
+  .btn-accent { background: var(--accent); color: #fff; padding: .85rem 1.4rem; font-size: .93rem; box-shadow: 0 12px 30px -10px rgba(122,90,248,.5); }
+  .btn-accent:hover { background: var(--accent-ink); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: .8rem 1.35rem; font-size: .93rem; }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.28); padding: .8rem 1.35rem; font-size: .93rem; }
+  .btn-outline-light:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.6); }
+  .btn-ghost { background: transparent; color: var(--ink); padding: .6rem .9rem; font-size: .92rem; }
+  .btn-lg { padding: 1rem 1.7rem; font-size: .96rem; border-radius: 16px; }
+  .btn-sm { padding: .55rem 1rem; font-size: .82rem; border-radius: 10px; }
+
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 20px; transition: all .25s ease; }
+  .card:hover { box-shadow: 0 20px 40px -25px rgba(20,16,42,.2); border-color: rgba(20,16,42,.15); }
+  .card-dark { background: rgba(255,255,255,.03); border: 1px solid var(--line-dark); border-radius: 20px; color: rgba(255,255,255,.9); }
+
+  .chip { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .8rem; border-radius: 999px; font-size: .72rem; font-weight: 500; background: var(--paper); color: var(--charcoal); border: 1px solid var(--line); }
+  .chip-accent { background: var(--accent-soft); color: var(--accent-ink); border-color: transparent; font-weight: 600; }
+  .chip-dark { background: var(--ink); color: #fff; border-color: transparent; }
+  .chip-live { background: #FEE2E2; color: #B91C1C; font-weight: 600; }
+  .chip-live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #DC2626; animation: pulse-live 1.5s ease-in-out infinite; }
+  @keyframes pulse-live { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+
+  .badge { display: inline-flex; padding: .22rem .6rem; font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border-radius: 6px; }
+  .badge-new { background: var(--accent-soft); color: var(--accent-ink); }
+  .badge-best { background: #FEF3C7; color: #92400E; }
+  .badge-live { background: #FEE2E2; color: #B91C1C; }
+
+  .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-ink); }
+  .eyebrow-light { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+  .prose-lede { font-size: 1.075rem; line-height: 1.7; color: var(--charcoal); }
+
+  .input { width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: .8rem 1rem; font-size: .93rem; color: var(--ink); transition: all .15s; }
+  .input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(122,90,248,.12); }
+  .input-dark { background: rgba(255,255,255,.05); border-color: var(--line-dark); color: #fff; }
+  .input-dark:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(122,90,248,.2); }
+  .label { font-size: .78rem; font-weight: 500; color: var(--charcoal); }
+
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .aurora { background: radial-gradient(60% 60% at 30% 30%, rgba(122,90,248,.35), transparent 60%), radial-gradient(50% 50% at 80% 60%, rgba(56,189,248,.25), transparent 60%); }
+  .dot-grid-light { background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 22px 22px; }
+
+  @keyframes fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .fade-up { animation: fade-up .5s ease-out both; }
+  .tabular-nums { font-variant-numeric: tabular-nums; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
