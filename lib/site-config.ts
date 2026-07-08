@@ -11,7 +11,7 @@ export const siteConfig = {
   host: {
     name: "Yemi Adeleke",
     role: "Host & lead facilitator",
-    portrait: "/img/creator.png",
+    portrait: "/img/hero-portrait.jpg",
     shortBio: "I run one live workshop a week for African founders, marketers and operators. Same day, same time, always practical.",
     metric: "142 live sessions · 38,400 attendees",
   },
